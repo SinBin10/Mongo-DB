@@ -16,4 +16,13 @@ app.get("/create", async (req, res) => {
   res.send(user);
 });
 
+app.get("/update", async (req, res) => {
+  let updatedUser = await userModel.findOneAndUpdate(
+    { username: "binay10" },
+    { name: "binaypratapsingh" },
+    { new: true }
+  );
+  res.send(updatedUser);
+});
+
 app.listen(3000);
